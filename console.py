@@ -137,7 +137,7 @@ class HBNBCommand(cmd.Cmd):
         if (self.my_errors(line, 2) == 1):
             return
         args = line.split()
-        d = storage.all() # type: ignore
+        d = storage.all()  # type: ignore
         if args[1][0] == '"':
             args[1] = args[1].replace('"', "")
         key = args[0] + '.' + args[1]
@@ -154,22 +154,22 @@ class HBNBCommand(cmd.Cmd):
         if (self.my_errors(line, 2) == 1):
             return
         args = line.split()
-        d = storage.all() # type: ignore
+        d = storage.all()  # type: ignore
         if args[1][0] == '"':
             args[1] = args[1].replace('"', "")
         key = args[0] + '.' + args[1]
         del d[key]
-        storage.save() # type: ignore
+        storage.save()  # type: ignore
 
     def do_all(self, line):
         """Shows all instances, or instances of a certain class
 
-        Args: 
+        Args:
             line(args): enter with command (optional): <class name>
             Example: 'all' OR 'all User'
 
         """
-        d = storage.all() # type: ignore
+        d = storage.all()  # type: ignore
         if not line:
             print([str(x) for x in d.values()])
             return
@@ -192,7 +192,7 @@ class HBNBCommand(cmd.Cmd):
         if (self.my_errors(line, 4) == 1):
             return
         args = line.split()
-        d = storage.all() # type: ignore
+        d = storage.all()  # type: ignore
         for i in range(len(args[1:]) + 1):
             if args[i][0] == '"':
                 args[i] = args[i].replace('"', "")
@@ -214,14 +214,14 @@ class HBNBCommand(cmd.Cmd):
                 print("Entered wrong value type")
                 return
         setattr(d[key], attr_k, attr_v)
-        storage.save() # type: ignore
+        storage.save()  # type: ignore
 
     def my_count(self, class_n):
         """
         Method counts instances of a certain class
         """
         count_instance = 0
-        for instance_object in storage.all().values(): # type: ignore
+        for instance_object in storage.all().values():  # type: ignore
             if instance_object.__class__.__name__ == class_n:
                 count_instance += 1
         print(count_instance)
